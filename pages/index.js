@@ -12,6 +12,7 @@ export async function getStaticProps() {
     props: {
       recipes: res.items,
     },
+    // we added revalidate to auto reupdate the hosted site when we add new content in cms
     revalidate: 1,
   };
 }
