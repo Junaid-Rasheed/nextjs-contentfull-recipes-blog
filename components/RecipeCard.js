@@ -4,7 +4,7 @@ import Link from "next/link";
 function RecipeCard({ recipe }) {
   const { cookingTime, slug, title, thumbnail } = recipe.fields;
   return (
-    <div>
+    <div >
       <Image
         className="card"
         src={"https:" + thumbnail.fields.file.url}

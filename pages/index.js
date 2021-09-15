@@ -12,6 +12,7 @@ export async function getStaticProps() {
     props: {
       recipes: res.items,
     },
+    revalidate: 1,
   };
 }
 
@@ -19,7 +20,7 @@ export default function Recipes({ recipes }) {
   console.log("helloss", recipes);
   return (
     <div className="recipe-list">
-      <div className='main'>
+      <div className="main">
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.sys.id} recipe={recipe} />
         ))}

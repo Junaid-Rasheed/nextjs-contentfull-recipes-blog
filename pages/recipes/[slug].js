@@ -35,6 +35,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       recipe: res.items[0],
     },
+    revalidate: 1,
   };
 };
 
@@ -44,7 +45,7 @@ export default function RecipeDetails({ recipe }) {
     recipe.fields;
   return (
     <div>
-      <div className='banner'>
+      <div className="banner">
         <Image
           src={"https:" + featuredImage.fields.file.url}
           // height={featuredImage.fields.file.details.image.height}
@@ -52,7 +53,7 @@ export default function RecipeDetails({ recipe }) {
           width={1100}
           height={370}
         />
-        <h1 >{title}</h1>
+        <h1>{title}</h1>
       </div>
 
       <div className="info">
