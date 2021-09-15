@@ -31,6 +31,19 @@ export const getStaticProps = async ({ params }) => {
     content_type: "recipe",
     "fields.slug": params.slug,
   });
+
+
+  // we use this below function if someone tried to access any recipe using slug that doent even exist 
+  if(!res.items.length){
+    return{
+      redirect:{
+        destination:'/',
+        permanent:false
+      }
+    }
+  }
+
+
   return {
     props: {
       recipe: res.items[0],
@@ -41,7 +54,7 @@ export const getStaticProps = async ({ params }) => {
 
 export default function RecipeDetails({ recipe }) {
   if (!recipe) return <div>Loading ..</div>;
-  
+
   console.log(recipe);
   const { featuredImage, cookingTime, title, ingredient, method } =
     recipe.fields;
